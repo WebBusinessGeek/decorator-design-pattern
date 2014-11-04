@@ -11,9 +11,26 @@ namespace App\CoffeeShopAppDecoratorPattern;
 
 class PriceSheet implements PriceSheetContract {
 
-    public function findPrice()
-    {
+    public $coffee = [
 
+        'small' => .85,
+
+        'medium' => 1.15,
+
+        'large' => 1.50,
+
+    ];
+
+    public $decafCoffee = [];
+
+    public function findPrice($type, $size)
+    {
+        $array = $this->$type;
+
+        return $array[$size];
     }
+
+
+
 
 }

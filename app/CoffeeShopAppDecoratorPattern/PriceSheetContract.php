@@ -11,6 +11,6 @@ namespace App\CoffeeShopAppDecoratorPattern;
 
 interface PriceSheetContract {
 
-    public function findPrice();
+    public function findPrice($type, $size);
 
 }
