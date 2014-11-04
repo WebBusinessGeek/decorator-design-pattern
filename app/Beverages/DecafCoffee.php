@@ -17,10 +17,12 @@ class DecafCoffee extends BeverageSuperClass {
     {
         return $this;
     }
+
     public function getDescription()
     {
         return 'Decaf coffee';
     }
+
 
     public function cost()
     {
