@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+
+use App\Beverages\DecafCoffee;
+
 class HomeController extends Controller {
 
 	/*
@@ -17,7 +20,8 @@ class HomeController extends Controller {
 
 	public function index()
 	{
-		return view('hello');
+		$a = new DecafCoffee();
+		var_dump($a->getDescription());
 	}
 
 }
