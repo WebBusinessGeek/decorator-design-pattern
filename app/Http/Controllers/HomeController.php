@@ -24,7 +24,7 @@ class HomeController extends Controller {
 	{
 		$a = new PriceSheet();
 
-		dd($a->findPrice('coffee', 'medium'));
+		dd($a->findPrice('espresso', 'medium'));
 
 	}
 
