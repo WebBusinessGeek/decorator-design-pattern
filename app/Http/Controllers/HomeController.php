@@ -18,10 +18,12 @@ class HomeController extends Controller {
 	|
 	*/
 
+
 	public function index()
 	{
-		$a = new DecafCoffee();
-		var_dump($a->getDescription());
+		return view('hello');
+
 	}
 
 }
+
