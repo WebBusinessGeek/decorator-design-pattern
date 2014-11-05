@@ -2,6 +2,7 @@
 
 
 use App\Beverages\DecafCoffee;
+use App\CoffeeShopAppDecoratorPattern\DescriptionSheet;
 use App\CoffeeShopAppDecoratorPattern\PriceSheet;
 
 class HomeController extends Controller {
@@ -22,9 +23,9 @@ class HomeController extends Controller {
 
 	public function index()
 	{
-		$a = new PriceSheet();
+		$a = new DescriptionSheet();
 
-		dd($a->findPrice('espresso', 'medium'));
+		dd($a->findDescription('coffee'));
 
 	}
 

@@ -11,5 +11,5 @@ namespace App\CoffeeShopAppDecoratorPattern;
 
 interface DescriptionSheetContract {
 
-    public function findDescription();
+    public function findDescription($type);
 }
