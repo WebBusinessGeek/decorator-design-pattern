@@ -6,7 +6,9 @@ use App\CoffeeShopAppDecoratorPattern\Beverage;
 use App\CoffeeShopAppDecoratorPattern\DescriptionSheet;
 use App\CoffeeShopAppDecoratorPattern\PriceSheet;
 use App\CoffeeShopAppDecoratorPattern\SizeSheet;
+use App\Providers\kevinProvider;
 use Illuminate\Container\Container;
+use Illuminate\Foundation\Application;
 
 class HomeController extends Controller {
 
@@ -29,12 +31,13 @@ class HomeController extends Controller {
 //		$b = new Container();
 //		$b->getBindings();
 //		$b->bind('DescriptionSheetContract', 'DescriptionSheet');
-//		$a = new Beverage('type', 'size');
-//
-//		$a->setDescriptionSheet(new DescriptionSheet());
-//		dd($a->descriptionSheet);
-//
-//		dd($b->getBindings());
+		$a = new Beverage('coffee', 'large', new DescriptionSheet(), new PriceSheet(), new SizeSheet());
+
+		//$a->setDescriptionSheet(new DescriptionSheet());
+		dd($a);
+
+		//dd($b->getBindings());
+
 
 
 

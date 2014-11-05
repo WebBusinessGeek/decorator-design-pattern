@@ -13,10 +13,20 @@ class Beverage implements BeverageInterface{
 
     use BeverageAbleTrait, SizeAbleTrait;
 
-    public function __construct($type, $size)
+    public function __construct($type, $size, DescriptionSheetContract $d, PriceSheetContract $p, SizeSheetContract $s)
     {
+        $this->setDescriptionSheet($d);
 
-        //call setDescriptionSheet , setPriceSheet, and setSizeSheet
+        $this->setPriceSheet($p);
+
+        $this->setSizeSheet($s);
+
+        $this->description = $this->descriptionSheet->findDescription($type);
+
+        $this->price = $this->priceSheet->findPrice($type, $size);
+
+        $this->size = $this->sizeSheet->findSize($size);
+
     }
     public function getDescription()
     {
