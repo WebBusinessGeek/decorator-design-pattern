@@ -11,6 +11,6 @@ namespace App\CoffeeShopAppDecoratorPattern;
 
 interface SizeSheetContract {
 
-    public function findSize();
+    public function findSize($size);
 
 }

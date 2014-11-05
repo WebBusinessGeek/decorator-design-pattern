@@ -4,6 +4,7 @@
 use App\Beverages\DecafCoffee;
 use App\CoffeeShopAppDecoratorPattern\DescriptionSheet;
 use App\CoffeeShopAppDecoratorPattern\PriceSheet;
+use App\CoffeeShopAppDecoratorPattern\SizeSheet;
 
 class HomeController extends Controller {
 
@@ -23,9 +24,9 @@ class HomeController extends Controller {
 
 	public function index()
 	{
-		$a = new DescriptionSheet();
+		$a = new SizeSheet();
 
-		dd($a->findDescription('coffee'));
+		dd($a->findSize('small'));
 
 	}
 

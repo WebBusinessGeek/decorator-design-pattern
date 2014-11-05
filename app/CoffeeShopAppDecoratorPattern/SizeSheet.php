@@ -11,9 +11,25 @@ namespace App\CoffeeShopAppDecoratorPattern;
 
 class SizeSheet implements SizeSheetContract {
 
-    public function findSize()
+    public $sizes = [
+
+        'small' => 'small',
+
+        'medium' => 'medium',
+
+        'large' => 'large'
+
+    ];
+    public function findSize($size)
     {
+      return ($this->checkValue($size)) ? $this->sizes[$size] : 'not at all man';
 
     }
+
+    public function checkValue($size)
+    {
+        return in_array($size, $this->sizes);
+    }
+
 
 }
