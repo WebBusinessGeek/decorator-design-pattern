@@ -9,23 +9,30 @@
 namespace App\CoffeeShopAppDecoratorPattern;
 
 
+use App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract as Description;
+use Illuminate\Foundation\Application;
+
 class Beverage implements BeverageInterface{
 
     use BeverageAbleTrait, SizeAbleTrait;
 
-    public function __construct($type, $size, DescriptionSheetContract $d, PriceSheetContract $p, SizeSheetContract $s)
+
+
+    public function __construct($type, $size)
     {
-        $this->setDescriptionSheet($d);
+        $a = Application::getInstance();
 
-        $this->setPriceSheet($p);
+        $this->descriptionSheet = $a->make('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract');
 
-        $this->setSizeSheet($s);
+        $this->priceSheet = $a->make('App\CoffeeShopAppDecoratorPattern\PriceSheetContract');
+
+        $this->sizeSheet = $a->make('App\CoffeeShopAppDecoratorPattern\SizeSheetContract');
 
         $this->description = $this->descriptionSheet->findDescription($type);
 
-        $this->price = $this->priceSheet->findPrice($type, $size);
-
         $this->size = $this->sizeSheet->findSize($size);
+
+        $this->price = $this->priceSheet->findPrice($type, $size);
 
     }
     public function getDescription()

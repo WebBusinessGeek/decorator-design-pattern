@@ -9,6 +9,8 @@ use App\CoffeeShopAppDecoratorPattern\SizeSheet;
 use App\Providers\kevinProvider;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\App;
+use Symfony\Component\Yaml\Tests\B;
 
 class HomeController extends Controller {
 
@@ -28,15 +30,14 @@ class HomeController extends Controller {
 
 	public function index()
 	{
-//		$b = new Container();
-//		$b->getBindings();
-//		$b->bind('DescriptionSheetContract', 'DescriptionSheet');
-		$a = new Beverage('coffee', 'large', new DescriptionSheet(), new PriceSheet(), new SizeSheet());
+//		bind('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract',
+//			'App\CoffeeShopAppDecoratorPattern\DescriptionSheet'
+//		);$a = new Application();
+//		$a->
+//		//$c = new Beverage($a->make('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract'));
 
-		//$a->setDescriptionSheet(new DescriptionSheet());
-		dd($a);
-
-		//dd($b->getBindings());
+		$c = new Beverage('hotTea', 'large');
+		dd($c->price . $c->size . $c->description);
 
 
 

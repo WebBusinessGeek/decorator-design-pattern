@@ -116,6 +116,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+
 		/*
 		 * Laravel Framework Service Providers...
 		 */
@@ -139,7 +140,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-		'\App\Providers\kevinProvider',
+
 
 	],
 

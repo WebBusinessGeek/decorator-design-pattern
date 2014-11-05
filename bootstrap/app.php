@@ -36,6 +36,31 @@ $app->singleton(
 	'App\Console\Kernel'
 );
 
+
+/*
+|--------------------------------------------------------------------------
+| Personal Bindings
+|--------------------------------------------------------------------------
+|
+| Personal bindings for the application
+|
+|
+|
+*/
+
+
+
+$app->bind('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract',
+	'App\CoffeeShopAppDecoratorPattern\DescriptionSheet'
+);
+
+$app->bind('App\CoffeeShopAppDecoratorPattern\PriceSheetContract',
+	'App\CoffeeShopAppDecoratorPattern\PriceSheet'
+);
+
+$app->bind('App\CoffeeShopAppDecoratorPattern\SizeSheetContract',
+	'App\CoffeeShopAppDecoratorPattern\SizeSheet'
+);
 /*
 |--------------------------------------------------------------------------
 | Return The Application
@@ -46,5 +71,8 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+
+
+
 
 return $app;
