@@ -13,7 +13,7 @@ class Beverage implements BeverageInterface{
 
     use BeverageAbleTrait, SizeAbleTrait;
 
-    public function __construct()
+    public function __construct($type, $size)
     {
 
         //call setDescriptionSheet , setPriceSheet, and setSizeSheet
