@@ -31,18 +31,12 @@ class HomeController extends Controller {
 
 	public function index()
 	{
-//		bind('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract',
-//			'App\CoffeeShopAppDecoratorPattern\DescriptionSheet'
-//		);$a = new Application();
-//		$a->
-//		//$c = new Beverage($a->make('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract'));
-
-		$c = new Beverage('hotTea', 'large');
+		$c = new Beverage('espresso', 'large');
 		$d = new AddOn('soyMilk', $c);
-		$e = new AddOn('sugar', $d);
-		$f = new AddOn('sugar', $e);
+		$e = new AddOn('mocha', $d);
+		$f = new AddOn('cream', $e);
 		$g = new AddOn('soyMilk', $f);
-		dd($g->cost());
+		dd($g->getDescription().' '. $g->cost());
 
 
 

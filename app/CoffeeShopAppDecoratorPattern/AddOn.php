@@ -37,7 +37,7 @@ class AddOn implements BeverageInterface{
     }
     public function getDescription()
     {
-        return $this->description;
+        return $this->description . ', ' . $this->beverage->getDescription();
     }
 
     public function setDescription($type)
