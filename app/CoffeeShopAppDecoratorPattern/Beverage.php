@@ -28,46 +28,53 @@ class Beverage implements BeverageInterface{
 
         $this->sizeSheet = $a->make('App\CoffeeShopAppDecoratorPattern\SizeSheetContract');
 
-        $this->description = $this->descriptionSheet->findDescription($type);
+        $this->setDescription($type);
 
-        $this->size = $this->sizeSheet->findSize($size);
+        $this->setSize($size);
 
-        $this->price = $this->priceSheet->findPrice($type, $size);
+        $this->setPrice($type, $size);
+
 
     }
+
     public function getDescription()
     {
-
+        return $this->description;
     }
 
-    public function setDescription()
+    public function setDescription($type)
     {
-
+        $this->description = $this->descriptionSheet->findDescription($type);
     }
 
     public function getSize()
     {
-
+        return $this->size;
     }
 
-    public function setSize()
+    public function setSize($size)
     {
-
+        $this->size = $this->sizeSheet->findSize($size);
     }
 
     public function getPrice()
     {
-
+        return $this->price;
     }
 
-    public function setPrice()
+    public function setPrice($type, $size)
     {
-
+        $this->price = $this->priceSheet->findPrice($type, $size);
     }
 
     public function cost()
     {
+        return $this->convertToMoney($this->price);
+    }
 
+    public function convertToMoney($price)
+    {
+        return number_format($price, 2, '.', '');
     }
 
 

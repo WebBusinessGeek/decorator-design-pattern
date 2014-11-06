@@ -13,15 +13,15 @@ interface BeverageInterface {
 
     public function getDescription();
 
-    public function setDescription();
+    public function setDescription($type);
 
     public function getSize();
 
-    public function setSize();
+    public function setSize($size);
 
     public function getPrice();
 
-    public function setPrice();
+    public function setPrice($type, $size);
 
     public function cost();
 }

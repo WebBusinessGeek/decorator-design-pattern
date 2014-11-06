@@ -9,6 +9,10 @@
 namespace App\CoffeeShopAppDecoratorPattern;
 
 
+
+
+use Illuminate\Foundation\Application;
+
 trait BeverageAbleTrait {
 
     public $descriptionSheet;
@@ -20,6 +24,8 @@ trait BeverageAbleTrait {
     public $size;
 
     public $description;
+
+
 
     public function setDescriptionSheet(DescriptionSheetContract $descriptionSheetContract)
     {
