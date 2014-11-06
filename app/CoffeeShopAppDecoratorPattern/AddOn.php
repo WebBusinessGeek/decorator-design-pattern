@@ -67,7 +67,8 @@ class AddOn implements BeverageInterface{
 
     public function cost()
     {
-        return $this->convertToMoney($this->price);
+        //want to add $this->price to $this->beverage->price then convert to money
+        return $this->convertToMoney($this->getPrice() + $this->beverage->cost());
     }
 
     public function convertToMoney($price)

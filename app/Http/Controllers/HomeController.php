@@ -38,9 +38,11 @@ class HomeController extends Controller {
 //		//$c = new Beverage($a->make('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract'));
 
 		$c = new Beverage('hotTea', 'large');
-		$d = new AddOn('mocha', $c);
+		$d = new AddOn('soyMilk', $c);
 		$e = new AddOn('sugar', $d);
-		dd($e->beverage->cost());
+		$f = new AddOn('sugar', $e);
+		$g = new AddOn('soyMilk', $f);
+		dd($g->cost());
 
 
 
