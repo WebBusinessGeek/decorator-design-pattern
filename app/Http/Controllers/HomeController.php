@@ -2,6 +2,7 @@
 
 
 use App\Beverages\DecafCoffee;
+use App\CoffeeShopAppDecoratorPattern\AddOn;
 use App\CoffeeShopAppDecoratorPattern\Beverage;
 use App\CoffeeShopAppDecoratorPattern\DescriptionSheet;
 use App\CoffeeShopAppDecoratorPattern\PriceSheet;
@@ -37,7 +38,9 @@ class HomeController extends Controller {
 //		//$c = new Beverage($a->make('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract'));
 
 		$c = new Beverage('hotTea', 'large');
-		dd($c->cost());
+		$d = new AddOn('mocha', $c);
+		$e = new AddOn('sugar', $d);
+		dd($e->beverage->cost());
 
 
 

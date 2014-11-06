@@ -9,49 +9,70 @@
 namespace App\CoffeeShopAppDecoratorPattern;
 
 
+use \Illuminate\Foundation\Application;
+
 class AddOn implements BeverageInterface{
 
     use BeverageAbleTrait;
 
     public $beverage;
 
-    public function __construct()
+    public function __construct($type, BeverageInterface $beverage)
     {
-        //call setDescriptionSheet and setPriceSheet
+        $this->beverage = $beverage;
+
+        $a = Application::getInstance();
+
+        $this->descriptionSheet = $a->make('App\CoffeeShopAppDecoratorPattern\DescriptionSheetContract');
+
+        $this->priceSheet = $a->make('App\CoffeeShopAppDecoratorPattern\PriceSheetContract');
+
+        $this->setDescription($type);
+
+        $this->setSize($this->beverage->getSize());
+
+        $this->setPrice($type, $this->beverage->getSize());
+
+
     }
     public function getDescription()
     {
-
+        return $this->description;
     }
 
-    public function setDescription()
+    public function setDescription($type)
     {
-
+        $this->description = $this->descriptionSheet->findDescription($type);
     }
 
     public function getSize()
     {
-
+        return $this->size;
     }
 
-    public function setSize()
+    public function setSize($size)
     {
-
+        $this->size = $size;
     }
 
     public function getPrice()
     {
-
+        return $this->price;
     }
 
-    public function setPrice()
+    public function setPrice($type, $size)
     {
-
+        $this->price = $this->priceSheet->findPrice($type, $size);
     }
 
     public function cost()
     {
+        return $this->convertToMoney($this->price);
+    }
 
+    public function convertToMoney($price)
+    {
+        return number_format($price, 2, '.', '');
     }
 
 }
